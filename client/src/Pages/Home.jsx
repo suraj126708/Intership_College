@@ -1,6 +1,5 @@
-const user = localStorage.getItem("loggedInUser");
-
 const Home = () => {
+  const user = localStorage.getItem("loggedInUser");
   return (
     <>
       <div className=" h-[100vh] w-[100%] flex justify-center items-center">
