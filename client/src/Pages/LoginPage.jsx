@@ -26,7 +26,7 @@ const LoginPage = () => {
     setErrors(null);
 
     try {
-      const url = "http://localhost:8080/api/auth/login";
+      const url = "https://intership-college.onrender.com/api/auth/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
