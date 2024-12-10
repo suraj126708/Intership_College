@@ -4,6 +4,8 @@ const cors = require("cors");
 const path = require("path");
 
 const AuthRouter = require("./routes/AuthRouter");
+const UploadRouter = require("./routes/uploadvid");
+// const upload = require("")
 
 const app = express();
 require("dotenv").config();
@@ -17,6 +19,8 @@ app.use(cors());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/auth", AuthRouter);
+
+app.use("/api/upload",UploadRouter);
 
 app.get("/ping", (req, res) => {
   res.send("hello server");

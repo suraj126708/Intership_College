@@ -10,6 +10,10 @@ import ProtectedRoute from "./Authorisation/ProtectedRoute";
 import HeroPage from "./Pages/HeroPage";
 import VideoTranscriptPlayer from "./Pages/TransCript";
 
+import Recorder from "./Pages/Home"
+
+import PlayVideos from "./Pages/viewvideo";
+
 function App() {
   return (
     <div className="App">
@@ -23,10 +27,34 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
+                
                 <VideoTranscriptPlayer />
+               
               </ProtectedRoute>
             }
           />
+
+          <Route
+            path="/record"
+            element={
+              <ProtectedRoute>
+                
+                <Recorder/>
+               
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/playvideo"
+            element={
+              <ProtectedRoute>
+                
+                <PlayVideos/>
+               
+              </ProtectedRoute>
+            }
+          />
+          
         </Routes>
       </AuthProvider>
     </div>

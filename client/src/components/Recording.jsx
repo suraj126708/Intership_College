@@ -7,6 +7,7 @@ import {
   PauseCircle,
   StopCircle,
 } from "lucide-react";
+import axios from 'axios';
 
 // Embedded Question Sets
 const interviewQuestionSets = {
@@ -148,12 +149,46 @@ const InterviewRecorder = ({
   };
 
   // Stop recording and move to next question
+  // const stopRecording = () => {
+  //   if (mediaRecorderRef.current) {
+  //     mediaRecorderRef.current.stop();
+  //     setIsRecording(false);
+
+  //     // Move to next question or complete interview
+  //     const nextQuestionIndex = completedQuestions + 1;
+  //     if (nextQuestionIndex < questions.length) {
+  //       setCompletedQuestions(nextQuestionIndex);
+  //       setCurrentQuestion(questions[nextQuestionIndex]);
+  //     }
+  //   }
+  // };
   const stopRecording = () => {
     if (mediaRecorderRef.current) {
       mediaRecorderRef.current.stop();
       setIsRecording(false);
-
-      // Move to next question or complete interview
+  
+      // Convert recorded chunks to blob
+      const blob = new Blob(recordedChunks, { type: 'video/webm' });
+      
+      // Create FormData to send file
+      const formData = new FormData();
+      formData.append('video', blob, `interview_${Date.now()}.webm`);
+  
+      // Send video to backend
+      axios.post('http://localhost:8080/api/upload/upload-interview', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(response => {
+        console.log('Video uploaded successfully');
+        // Handle successful upload
+      })
+      .catch(error => {
+        console.error('Upload failed', error);
+      });
+  
+      // Move to next question logic
       const nextQuestionIndex = completedQuestions + 1;
       if (nextQuestionIndex < questions.length) {
         setCompletedQuestions(nextQuestionIndex);
