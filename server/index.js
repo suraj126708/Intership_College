@@ -20,7 +20,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/auth", AuthRouter);
 
-app.use("/api/upload",UploadRouter);
+app.use("/api/upload", UploadRouter);
 
 app.get("/ping", (req, res) => {
   res.send("hello server");

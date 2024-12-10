@@ -47,6 +47,35 @@ const upload = multer({
 
 const router = require("express").Router();
 
+// Route to delete a video by filename
+router.delete("/delete-interview/:filename", async (req, res) => {
+  const { filename } = req.params;
+  console.log("Filename to delete:", filename); // Log the received filename for deletion
+
+  try {
+    const file = await bucket.find({ filename: req.params.filename }).toArray();
+
+    if (!file || file.length === 0) {
+      console.log(`File with filename ${filename} not found`);
+      return res.status(404).json({ message: "File not found" });
+    }
+
+    await bucket.delete(file[0]._id);
+
+    console.log(`File with filename ${filename} deleted successfully`);
+    res.status(200).json({
+      message: "Video deleted successfully",
+      filename: req.params.filename,
+    });
+  } catch (error) {
+    console.error("Error deleting video:", error);
+    res.status(500).json({
+      message: "Error deleting video",
+      error: error.message,
+    });
+  }
+});
+
 // Custom upload route with GridFS
 router.post("/upload-interview", upload.single("video"), (req, res) => {
   if (!req.file) {
@@ -124,6 +153,8 @@ router.get("/get-interview/:filename", async (req, res) => {
 router.get("/list-interviews", async (req, res) => {
   try {
     const files = await bucket.find().toArray();
+
+    console.log("Files in GridFS:", files);
 
     if (!files || files.length === 0) {
       return res.json({ message: "No videos found" });
