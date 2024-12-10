@@ -16,8 +16,31 @@ const signUp = async (req, res) => {
       terms,
     } = req.body;
 
+    console.log("Received signup request:", req.body);
+
+    // Validate required fields
+    if (
+      !fullName ||
+      !dob ||
+      !gender ||
+      !contactNumber ||
+      !email ||
+      !username ||
+      !password ||
+      !address ||
+      !terms
+    ) {
+      return res.status(400).json({
+        message: "All fields are required",
+        success: false,
+      });
+    }
+
     if (!req.file) {
-      return res.status(400).json({ message: "Profile picture is required" });
+      return res.status(400).json({
+        message: "Profile picture is required",
+        success: false,
+      });
     }
 
     const profilePic = req.file.path;
@@ -25,9 +48,10 @@ const signUp = async (req, res) => {
     // Check if the user already exists
     const existingUser = await userModel.findOne({ email });
     if (existingUser) {
-      return res
-        .status(409)
-        .json({ message: "User already exists, you can log in." });
+      return res.status(409).json({
+        message: "User already exists, you can log in.",
+        success: false,
+      });
     }
 
     // Hash the password
@@ -54,7 +78,15 @@ const signUp = async (req, res) => {
       success: true,
     });
   } catch (err) {
-    console.error(err);
+    console.error("Error during user registration:", err);
+
+    if (err.code === 11000) {
+      return res.status(409).json({
+        message: "Duplicate entry: Email or Username already exists",
+        success: false,
+      });
+    }
+
     res.status(500).json({
       message: "Error creating user",
       success: false,
