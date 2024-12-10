@@ -7,10 +7,9 @@ import RegistrationPage from "./Pages/RegisterPage";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./Authorisation/AuthProvider";
 import ProtectedRoute from "./Authorisation/ProtectedRoute";
-import HeroPage from "./Pages/HeroPage";
 import VideoTranscriptPlayer from "./Pages/TransCript";
 
-import Recorder from "./Pages/Home"
+import Recorder from "./Pages/Home";
 
 import PlayVideos from "./Pages/viewvideo";
 
@@ -27,9 +26,7 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
-                
                 <VideoTranscriptPlayer />
-               
               </ProtectedRoute>
             }
           />
@@ -38,9 +35,7 @@ function App() {
             path="/record"
             element={
               <ProtectedRoute>
-                
-                <Recorder/>
-               
+                <Recorder />
               </ProtectedRoute>
             }
           />
@@ -48,13 +43,10 @@ function App() {
             path="/playvideo"
             element={
               <ProtectedRoute>
-                
-                <PlayVideos/>
-               
+                <PlayVideos />
               </ProtectedRoute>
             }
           />
-          
         </Routes>
       </AuthProvider>
     </div>

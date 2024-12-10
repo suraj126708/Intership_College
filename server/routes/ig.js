@@ -4,6 +4,7 @@ const multer = require("multer");
 const mongoose = require("mongoose");
 const { GridFsStorage } = require("multer-gridfs-storage");
 const VideoMetadata = require("../");
+require("dotenv").config();
 
 // Create GridFS storage
 const storage = new GridFsStorage({
