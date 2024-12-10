@@ -18,7 +18,6 @@ const signUp = async (req, res) => {
 
     console.log("Received signup request:", req.body);
 
-    // Validate required fields
     if (
       !fullName ||
       !dob ||
