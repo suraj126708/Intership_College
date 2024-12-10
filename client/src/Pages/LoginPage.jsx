@@ -23,7 +23,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setErrors(null);
+    setErrors(null); // Reset errors
 
     try {
       const url = "https://intership-college.onrender.com/api/auth/login";
@@ -39,8 +39,8 @@ const LoginPage = () => {
 
       if (!response.ok) {
         const errorMessage = result.message || "Login failed";
-        setErrors({ apiError: errorMessage });
-        handleError(errorMessage);
+        setErrors(errorMessage); // Set error as string
+        console.log(errorMessage);
         return;
       }
 
@@ -59,7 +59,7 @@ const LoginPage = () => {
       }
     } catch (err) {
       const errorMessage = err.message || "An unexpected error occurred.";
-      setErrors({ apiError: errorMessage });
+      setErrors(errorMessage); // Set error as string
       handleError(errorMessage);
     } finally {
       setLoading(false);
@@ -107,6 +107,7 @@ const LoginPage = () => {
               />
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}{" "}
+            {/* Render error message */}
             <button
               type="submit"
               className={`w-full py-2 bg-green-500 rounded-lg hover:bg-green-700 transition duration-300 ${
