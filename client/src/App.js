@@ -7,7 +7,8 @@ import RegistrationPage from "./Pages/RegisterPage";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "./Authorisation/AuthProvider";
 import ProtectedRoute from "./Authorisation/ProtectedRoute";
-import { Navigate } from "react-router-dom";
+import HeroPage from "./Pages/HeroPage";
+import VideoTranscriptPlayer from "./Pages/TransCript";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
-                <Home />
+                <VideoTranscriptPlayer />
               </ProtectedRoute>
             }
           />
