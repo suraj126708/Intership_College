@@ -16,8 +16,6 @@ const signUp = async (req, res) => {
       terms,
     } = req.body;
 
-    console.log("Received signup request:", req.body);
-
     if (
       !fullName ||
       !dob ||
