@@ -120,7 +120,7 @@ const VideoRecordertwo = () => {
         
         try {
             console.log('Sending request to backend...');
-            const response = await axios.post('http://127.0.0.1:8080/api/videos/save', formData, {
+            const response = await axios.post('https://intership-college.onrender.com/api/videos/save', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
                 // Add timeout to check for potential network issues
                 timeout: 10000

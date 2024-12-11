@@ -23,6 +23,8 @@ import SpeechAnalysisDashboardtwo from "./Pages/Analysis2";
 
 import VideoRecordertwo from "./Pages/NewVR";
 
+import Hometwo from "./Pages/Hometwo";
+
 function App() {
   return (
     <div className="App">
@@ -32,23 +34,24 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
 
-          <Route
+          {/* <Route
             path="/"
             element={
               <ProtectedRoute>
                 <VideoTranscriptPlayer />
               </ProtectedRoute>
             }
-          />
+          /> */}
 
-          <Route
+
+          {/* <Route
             path="/record"
             element={
               <ProtectedRoute>
                 <Recorder />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path="/playvideo"
             element={
@@ -57,14 +60,16 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/recordvideo"
+          {/* <Route
+            path="/recordvideoold"
             element={
               
                 <VideoRecorder/>
              
             }
-          />
+          /> */}
+
+
 
           <Route
             path="/gallery"
@@ -94,7 +99,7 @@ function App() {
           />
 
           <Route
-            path="/new"
+            path="/record"
             element={
               
                 <VideoRecordertwo/>
@@ -102,6 +107,24 @@ function App() {
             }
           />
 
+
+          <Route
+            path="/"
+            element={
+              
+                <Hometwo/>
+             
+            }
+          />
+
+          <Route
+            path="/transcript"
+            element={
+              
+                <VideoTranscriptPlayer/>
+             
+            }
+          />
 
         </Routes>
       </AuthProvider>

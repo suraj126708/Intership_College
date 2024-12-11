@@ -11,7 +11,7 @@ const VideoGallery = () => {
     const fetchVideos = async () => {
       try {
         const response = await axios.get(
-          "intership-college-frontend.onrender.com/api/videos/list"
+          "https://intership-college.onrender.com/api/videos/list"
         );
         setVideos(response.data.videos);
 
