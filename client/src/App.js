@@ -19,7 +19,7 @@ import VideoGallery from "./Pages/VideoGallery";
 
 import SpeechAnalysisDashboard from "./Pages/Analysis";
 
-import SpeechAnalysisDashboardtwo from "./Pages/Analysis2"; 
+import SpeechAnalysisDashboardtwo from "./Pages/Analysis2";
 
 import VideoRecordertwo from "./Pages/NewVR";
 
@@ -57,52 +57,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/recordvideo"
-            element={
-              
-                <VideoRecorder/>
-             
-            }
-          />
+          <Route path="/recordvideo" element={<VideoRecorder />} />
 
-          <Route
-            path="/gallery"
-            element={
-              
-                <VideoGallery/>
-             
-            }
-          />
+          <Route path="/gallery" element={<VideoGallery />} />
 
-          <Route
-            path="/analysis"
-            element={
-              
-                <SpeechAnalysisDashboard/>
-             
-            }
-          />
+          <Route path="/analysis" element={<SpeechAnalysisDashboard />} />
 
-          <Route
-            path="/analysistwo"
-            element={
-              
-                <SpeechAnalysisDashboardtwo/>
-             
-            }
-          />
+          <Route path="/analysistwo" element={<SpeechAnalysisDashboardtwo />} />
 
-          <Route
-            path="/new"
-            element={
-              
-                <VideoRecordertwo/>
-             
-            }
-          />
-
-
+          <Route path="/new" element={<VideoRecordertwo />} />
         </Routes>
       </AuthProvider>
     </div>
