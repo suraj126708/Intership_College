@@ -85,7 +85,7 @@ const RegistrationPage = () => {
 
       // API call
       await axios.post(
-        "https://intership-college.onrender.com/api/auth/signup",
+        "https://http://127.0.0.1:8080/api/auth/signup",
         formDataToSend,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

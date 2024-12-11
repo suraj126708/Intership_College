@@ -11,7 +11,11 @@ import VideoTranscriptPlayer from "./Pages/TransCript";
 
 import Recorder from "./Pages/Home";
 
+import VideoRecorder from "./Pages/Videorecorder";
+
 import PlayVideos from "./Pages/viewvideo";
+
+import VideoGallery from "./Pages/VideoGallery";
 
 function App() {
   return (
@@ -45,6 +49,23 @@ function App() {
               <ProtectedRoute>
                 <PlayVideos />
               </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/recordvideo"
+            element={
+              
+                <VideoRecorder/>
+             
+            }
+          />
+
+          <Route
+            path="/gallery"
+            element={
+              
+                <VideoGallery/>
+             
             }
           />
         </Routes>
