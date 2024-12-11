@@ -121,45 +121,49 @@ const VideoRecordertwo = () => {
     const formData = new FormData();
     formData.append("video", blob, "recording.webm");
 
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Authentication token is missing. Please login again.");
+      return;
+    }
+
     try {
       console.log("Sending request to backend...");
+
       const response = await axios.post(
         "https://intership-college.onrender.com/api/videos/save",
         formData,
         {
-          headers: { "Content-Type": "multipart/form-data" },
-          // Add timeout to check for potential network issues
-          timeout: 10000,
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+          timeout: 20000,
         }
       );
 
       console.log("Save response:", response);
       alert("Video saved successfully!");
 
-      // Reset video preview and state
       if (videoRef.current) {
         videoRef.current.srcObject = null;
         videoRef.current.src = "";
       }
 
-      // Reset chunks and blob
       chunksRef.current = [];
       setVideoBlob(null);
       setCurrentQuestionIndex(0);
     } catch (error) {
       console.error("Full error details:", error);
 
-      // More detailed error logging
       if (error.response) {
-        // The request was made and the server responded with a status code
         console.error("Error response data:", error.response.data);
         console.error("Error response status:", error.response.status);
         console.error("Error response headers:", error.response.headers);
       } else if (error.request) {
-        // The request was made but no response was received
         console.error("No response received:", error.request);
       } else {
-        // Something happened in setting up the request
         console.error("Error setting up request:", error.message);
       }
 
@@ -210,6 +214,7 @@ const VideoRecordertwo = () => {
             autoPlay
             playsInline
             muted
+            name="video"
             className="w-full bg-black"
             style={{
               display: recording ? "block" : "none",

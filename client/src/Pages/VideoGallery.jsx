@@ -10,8 +10,23 @@ const VideoGallery = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
+        // Retrieve the token from localStorage (or sessionStorage if stored there)
+        const token = localStorage.getItem("authToken"); // or sessionStorage.getItem("authToken");
+
+        // If there's no token, you can handle the error (redirect or show a message)
+        if (!token) {
+          console.error("No token found, user not authorized.");
+          return;
+        }
+
+        // Send the token in the Authorization header
         const response = await axios.get(
-          "https://intership-college.onrender.com/api/videos/list"
+          "https://intership-college.onrender.com/api/videos/list",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Attach token to request headers
+            },
+          }
         );
         setVideos(response.data.videos);
 
@@ -21,6 +36,7 @@ const VideoGallery = () => {
         }
       } catch (error) {
         console.error("Error fetching videos:", error);
+        // Handle unauthorized or any other errors here
       }
     };
 

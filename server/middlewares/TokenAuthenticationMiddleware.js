@@ -12,8 +12,7 @@ const TokenAuthMiddleware = function (req, res, next) {
     if (err) {
       return res.status(401).json({ message: "Invalid token" });
     }
-
-    req.userId = decoded._id;
+    req.user = decoded;
     next();
   });
 };
