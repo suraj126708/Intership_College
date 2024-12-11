@@ -87,7 +87,7 @@ const PlayVideos = () => {
             <video
               controls
               className="w-full border rounded"
-              src={`/api/upload/get-interview/${selectedVideo}`}
+              src={`intership-college-frontend.onrender.com//api/upload/get-interview/${selectedVideo}`}
             >
               Your browser does not support the video tag.
             </video>
