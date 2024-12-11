@@ -23,6 +23,8 @@ import SpeechAnalysisDashboardtwo from "./Pages/Analysis2";
 
 import VideoRecordertwo from "./Pages/NewVR";
 
+import Hometwo from "./Pages/Hometwo";
+
 function App() {
   return (
     <div className="App">
@@ -32,23 +34,24 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
 
-          <Route
+          {/* <Route
             path="/"
             element={
               <ProtectedRoute>
                 <VideoTranscriptPlayer />
               </ProtectedRoute>
             }
-          />
+          /> */}
 
-          <Route
+
+          {/* <Route
             path="/record"
             element={
               <ProtectedRoute>
                 <Recorder />
               </ProtectedRoute>
             }
-          />
+          /> */}
           <Route
             path="/playvideo"
             element={
@@ -57,15 +60,66 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/recordvideo" element={<VideoRecorder />} />
+          {/* <Route
+            path="/recordvideoold"
+            element={
+              
+                <VideoRecorder/>
+             
+            }
+          /> */}
+
+
 
           <Route path="/gallery" element={<VideoGallery />} />
 
-          <Route path="/analysis" element={<SpeechAnalysisDashboard />} />
+          <Route
+            path="/analysis"
+            element={
+              
+                <SpeechAnalysisDashboard/>
+             
+            }
+          />
+
+          <Route
+            path="/analysistwo"
+            element={
+              
+                <SpeechAnalysisDashboardtwo/>
+             
+            }
+          />
+
+          <Route
+            path="/record"
+            element={
+              
+                <VideoRecordertwo/>
+             
+            }
+          />
 
           <Route path="/analysistwo" element={<SpeechAnalysisDashboardtwo />} />
 
-          <Route path="/new" element={<VideoRecordertwo />} />
+          <Route
+            path="/"
+            element={
+              
+                <Hometwo/>
+             
+            }
+          />
+
+          <Route
+            path="/transcript"
+            element={
+              
+                <VideoTranscriptPlayer/>
+             
+            }
+          />
+
         </Routes>
       </AuthProvider>
     </div>
