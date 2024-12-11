@@ -60,7 +60,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-<<<<<<< HEAD
           {/* <Route
             path="/recordvideoold"
             element={
@@ -71,13 +70,9 @@ function App() {
           /> */}
 
 
-=======
-          <Route path="/recordvideo" element={<VideoRecorder />} />
->>>>>>> 47f66a45489c8b7054d67b181a768da4aa009cb3
 
           <Route path="/gallery" element={<VideoGallery />} />
 
-<<<<<<< HEAD
           <Route
             path="/analysis"
             element={
@@ -104,13 +99,9 @@ function App() {
              
             }
           />
-=======
-          <Route path="/analysis" element={<SpeechAnalysisDashboard />} />
->>>>>>> 47f66a45489c8b7054d67b181a768da4aa009cb3
 
           <Route path="/analysistwo" element={<SpeechAnalysisDashboardtwo />} />
 
-<<<<<<< HEAD
           <Route
             path="/"
             element={
@@ -129,9 +120,6 @@ function App() {
             }
           />
 
-=======
-          <Route path="/new" element={<VideoRecordertwo />} />
->>>>>>> 47f66a45489c8b7054d67b181a768da4aa009cb3
         </Routes>
       </AuthProvider>
     </div>
