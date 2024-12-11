@@ -11,7 +11,7 @@ const VideoGallery = () => {
     const fetchVideos = async () => {
       try {
         const response = await axios.get(
-          "intership-college-frontend.onrender.com/api/videos/list"
+          "https://intership-college.onrender.com/api/videos/list"
         );
         setVideos(response.data.videos);
 
@@ -35,7 +35,7 @@ const VideoGallery = () => {
       {selectedVideo && (
         <div className="mb-4">
           <AdvancedVideoPlayer
-            src={`intership-college-frontend.onrender.com/uploads/videos/${selectedVideo.filename}`}
+            src={`https://intership-college.onrender.com/uploads/videos/${selectedVideo.filename}`}
             className="max-h-[500px] bg-black"
           />
           <p className="mt-2 text-center">{selectedVideo.filename}</p>
@@ -51,7 +51,7 @@ const VideoGallery = () => {
             className="cursor-pointer hover:opacity-75 transition"
           >
             <video
-              src={`intership-college-frontend.onrender.com/uploads/videos/${video.filename}`}
+              src={`https://intership-college.onrender.com/uploads/videos/${video.filename}`}
               className="w-full h-32 object-cover"
             />
             <p className="text-sm mt-1 truncate">{video.filename}</p>

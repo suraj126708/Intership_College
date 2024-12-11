@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { handleError, handleSuccess } from "../utils";
 
 const VideoRecordertwo = () => {
   const [recording, setRecording] = useState(false);
@@ -85,7 +84,7 @@ const VideoRecordertwo = () => {
       setCurrentQuestionIndex(0);
     } catch (error) {
       console.error("Error starting recording:", error);
-      handleError("Error accessing camera/microphone: " + error.message);
+      alert("Error accessing camera/microphone: " + error.message);
     }
   };
 
@@ -135,7 +134,7 @@ const VideoRecordertwo = () => {
       );
 
       console.log("Save response:", response);
-      handleSuccess("Video saved successfully!");
+      alert("Video saved successfully!");
 
       // Reset video preview and state
       if (videoRef.current) {
@@ -164,9 +163,7 @@ const VideoRecordertwo = () => {
         console.error("Error setting up request:", error.message);
       }
 
-      handleError(
-        "Failed to save video: " + (error.response?.data || error.message)
-      );
+      alert("Failed to save video: " + (error.response?.data || error.message));
     }
   };
 
