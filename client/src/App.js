@@ -17,6 +17,12 @@ import PlayVideos from "./Pages/viewvideo";
 
 import VideoGallery from "./Pages/VideoGallery";
 
+import SpeechAnalysisDashboard from "./Pages/Analysis";
+
+import SpeechAnalysisDashboardtwo from "./Pages/Analysis2"; 
+
+import VideoRecordertwo from "./Pages/NewVR";
+
 function App() {
   return (
     <div className="App">
@@ -68,6 +74,35 @@ function App() {
              
             }
           />
+
+          <Route
+            path="/analysis"
+            element={
+              
+                <SpeechAnalysisDashboard/>
+             
+            }
+          />
+
+          <Route
+            path="/analysistwo"
+            element={
+              
+                <SpeechAnalysisDashboardtwo/>
+             
+            }
+          />
+
+          <Route
+            path="/new"
+            element={
+              
+                <VideoRecordertwo/>
+             
+            }
+          />
+
+
         </Routes>
       </AuthProvider>
     </div>

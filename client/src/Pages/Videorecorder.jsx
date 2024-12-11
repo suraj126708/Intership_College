@@ -64,7 +64,6 @@ const VideoRecorder = () => {
 
         const formData = new FormData();
         formData.append('video', videoBlob, 'recording.webm');
-
         try {
             const response = await axios.post('http://127.0.0.1:8080/api/videos/save', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }

@@ -5,12 +5,17 @@
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@heroicons/react": "^1.0.6",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.1",
     "@react-google-maps/api": "^2.19.3",
+    "@shadcn/ui": "^0.0.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "bcryptjs": "^2.4.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "express": "^4.21.0",
     "express-session": "^1.18.0",
     "gsap": "^3.12.5",
@@ -27,6 +32,8 @@
     "react-scroll": "^1.9.0",
     "react-toastify": "^10.0.6",
     "reactjs-popup": "^2.0.6",
+    "recharts": "^2.14.1",
+    "tailwind-merge": "^2.5.5",
     "use-places-autocomplete": "^4.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -55,6 +62,7 @@
     ]
   },
   "devDependencies": {
+    "shadcn-ui": "^0.9.4",
     "tailwindcss": "^3.4.16"
   }
 }
